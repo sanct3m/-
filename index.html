@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Our Discord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(ellipse at top, #0e0e0e, #000000);
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Sparkling particle layer */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkleAnim 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes sparkleAnim {
+      0%   { transform: translateY(0)       scale(1);   opacity: 0.7; }
+      50%  { transform: translateY(-100vh) scale(1.5); opacity: 0.3; }
+      100% { transform: translateY(0)       scale(1);   opacity: 0.7; }
+    }
+
+    /* ──────────────────────────────── */
+    /*  LAYOUT                         */
+    /* ──────────────────────────────── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 90%;                 /* keeps a little side‑padding */
+      max-width: 1400px;
+      height: 80vh;               /* 16:9‑ish aspect overall */
+      display: flex;
+      gap: 40px;                  /* space between left and right */
+    }
+
+    /* LEFT: Discord widget */
+    .discord-container {
+      width: 380px;               /* fixed width like before */
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s ease;
+      animation: popIn 1.4s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes popIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .discord-container:hover {
+      transform: scale(1.03) translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 255, 255, 0.4);
+    }
+
+    .discord-container h1 {
+      text-align: center;
+      font-size: 26px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+    }
+
+    iframe {
+      border-radius: 12px;
+      border: none;
+      width: 100%;
+      height: 500px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    /* RIGHT: Info panel */
+    .info-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(25px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+      padding: 40px;
+      text-align: center;
+      transition: all 0.4s ease;
+      animation: popIn 1.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .info-container:hover {
+      transform: scale(1.01) translateY(-5px);
+      box-shadow: 0 0 60px rgba(0, 255, 255, 0.4);
+    }
+
+    .info-title {
+      font-size: 42px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    }
+
+    .info-description {
+      font-size: 18px;
+      color: #dbdbdb;
+      max-width: 80%;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 960px) {
+      .wrapper {
+        flex-direction: column;  /* stack for small screens */
+        height: auto;
+      }
+
+      .discord-container {
+        width: 100%;
+      }
+
+      .info-container {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sparkling particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Content wrapper -->
+  <div class="wrapper">
+
+    <!-- Left side: Discord Widget panel -->
+    <div class="discord-container">
+      <h1>Server Status</h1>
+      <iframe 
+        src="https://ptb.discord.com/widget?id=1307653470417063936&theme=dark"
+        allowtransparency="true"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+      </iframe>
+    </div>
+
+    <!-- Right side: Customisable info panel -->
+    <div class="info-container">
+      <!--
+        ▸ EDIT ME!
+        Change the text below to whatever title & description you like.
+        You can even insert additional HTML (images, buttons, etc.) if desired.
+      -->
+      <h2 class="info-title">Sanctum</h2>
+      <p class="info-description">
+        Sanctum — Your escape from the chaos.
+
+Looking for a place to chill, talk about anything, and just vibe? Welcome to Sanctum — a cozy yet mysterious hangout built for teens and anyone who just wants a break from the noise. Whether you're making new friends, deep in a late-night convo, or just vibing in silence, Sanctum has a space for you.
+
+This isn’t your average server. We’re laid-back, unfiltered (within reason), and built different. No fake energy. No pressure to perform. Just pure, unhinged, late-night Discord energy — whenever you need it.
+
+Safe space. Real talk. Chill vibes.
+
+Sanctum is underrated — and it might just become your new favorite server.
+      </p>
+    </div>
+
+  </div> <!-- /wrapper -->
+
+  <!-- Sparkle Particle Script -->
+  <script>
+    const particlesContainer = document.getElementById("particles");
+    for (let i = 0; i < 80; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = Math.random() * 100 + "vw";
+      sparkle.style.top = Math.random() * 100 + "vh";
+      sparkle.style.animationDuration = (Math.random() * 10 + 5) + "s";
+      sparkle.style.animationDelay = Math.random() * 5 + "s";
+      sparkle.style.opacity = Math.random();
+      particlesContainer.appendChild(sparkle);
+    }
+  </script>
+
+</body>
+</html>
